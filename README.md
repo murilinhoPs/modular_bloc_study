@@ -1,6 +1,6 @@
-# bloc_app
+# moduldar_bloc_study
 
-A new Flutter project.
+A new Flutter project using flutter_modular and flutter_bloc/cubit. I'm studying how to structure projects with modular and bloc, and this might help someone too.
 
 ## Getting Started
 
