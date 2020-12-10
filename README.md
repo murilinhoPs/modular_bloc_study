@@ -1,4 +1,4 @@
-# moduldar_bloc_study
+# modular_bloc_study
 
 A new Flutter project using flutter_modular and flutter_bloc/cubit. I'm studying how to structure projects with modular and bloc, and this might help someone too.
 
