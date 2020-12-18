@@ -1,4 +1,4 @@
-import 'package:bloc_app/app/home_module/home_bloc.dart';
+import 'package:bloc_app/app/home_module/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
