@@ -1,10 +1,10 @@
-import 'package:bloc_app/app/home_module/home_cubit.dart';
+import 'package:bloc_app/app/home_module/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class MyHomePage extends StatelessWidget {
-  final _counterCubit = Modular.get<CounterCubit>();
+  final _counterCubit = Modular.get<CounterBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MyHomePage extends StatelessWidget {
             Text(
               'You have pushed the button this many times: ',
             ),
-            BlocBuilder<CounterCubit, int>(
+            BlocBuilder<CounterBloc, int>(
               cubit: _counterCubit,
               builder: (context, state) {
                 return Text(
