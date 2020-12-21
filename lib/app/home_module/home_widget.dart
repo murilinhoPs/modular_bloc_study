@@ -1,7 +1,7 @@
 import 'package:bloc_app/app/home_module/home_cubit.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
   final _counterCubit = Modular.get<CounterCubit>();
@@ -10,7 +10,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("App Bloc"),
+        title: Text("Counter Cubit"),
       ),
       body: Center(
         child: Column(

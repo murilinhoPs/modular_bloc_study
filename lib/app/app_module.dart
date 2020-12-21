@@ -1,7 +1,7 @@
-import 'package:bloc_app/app/app_widget.dart';
 import 'package:bloc_app/app/home_module/home_module.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:bloc_app/app/app_widget.dart';
+import 'package:flutter/widgets.dart';
 
 class AppModule extends MainModule {
   @override
