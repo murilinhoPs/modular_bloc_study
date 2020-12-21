@@ -1,16 +1,16 @@
-import 'package:bloc_app/app/home_module/home_bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc_app/app/home_module/bloc/counter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-  final _counterCubit = Modular.get<CounterBloc>();
+  final _counterBloc = Modular.get<CounterBloc>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("App Bloc"),
+        title: Text("Counter Bloc"),
       ),
       body: Center(
         child: Column(
@@ -19,11 +19,13 @@ class MyHomePage extends StatelessWidget {
             Text(
               'You have pushed the button this many times: ',
             ),
-            BlocBuilder<CounterBloc, int>(
-              cubit: _counterCubit,
+            BlocBuilder<CounterBloc, CounterState>(
+              cubit: _counterBloc,
               builder: (context, state) {
+                int stateValue = state.props[0];
+
                 return Text(
-                  '$state',
+                  '$stateValue',
                   style: Theme.of(context).textTheme.headline5,
                 );
               },
@@ -39,14 +41,14 @@ class MyHomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
               child: const Icon(Icons.add),
-              onPressed: () => _counterCubit.increment(),
+              onPressed: () => _counterBloc.add(CounterIncrementEvent()),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
               child: const Icon(Icons.remove),
-              onPressed: () => _counterCubit.decrement(),
+              onPressed: () => _counterBloc.add(CounterDecrementEvent()),
             ),
           ),
         ],

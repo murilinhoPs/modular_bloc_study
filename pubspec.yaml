@@ -15,12 +15,17 @@ dependencies:
   flutter_bloc:
   bloc:
   flutter_modular:
+  equatable:
+  
 
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
-  flutter_test:
+  flutter_test:  
     sdk: flutter
+  
+  test:
+  bloc_test:
 
 flutter:
   uses-material-design: true
