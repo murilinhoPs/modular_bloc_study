@@ -15,11 +15,11 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
   @override
   Stream<CounterState> mapEventToState(CounterEvent event) async* {
     if (event is CounterIncrementEvent) {
-      int stateValue = state.props[0];
+      int stateValue = state.stateValue;
 
       yield CounterIncrementState(stateValue);
     } else if (event is CounterDecrementEvent) {
-      int stateValue = state.props[0];
+      int stateValue = state.stateValue;
 
       yield CounterDecrementState(stateValue);
     }

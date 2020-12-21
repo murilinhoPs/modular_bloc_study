@@ -22,7 +22,7 @@ class MyHomePage extends StatelessWidget {
             BlocBuilder<CounterBloc, CounterState>(
               cubit: _counterBloc,
               builder: (context, state) {
-                int stateValue = state.props[0];
+                int stateValue = state.stateValue;
 
                 return Text(
                   '$stateValue',

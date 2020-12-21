@@ -2,35 +2,24 @@ part of 'counter_bloc.dart';
 
 @immutable
 abstract class CounterState extends Equatable {
-  const CounterState();
+  final int stateValue;
+
+  const CounterState(this.stateValue);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [stateValue];
 }
 
 class CounterInitialState extends CounterState {
-  const CounterInitialState();
-
-  final int initialValue = 0;
-
-  @override
-  List<Object> get props => [initialValue];
+  const CounterInitialState() : super(0);
 }
 
 class CounterIncrementState extends CounterState {
-  const CounterIncrementState(this.stateIncremented);
-
-  final int stateIncremented;
-
-  @override
-  List<Object> get props => [stateIncremented + 1];
+  const CounterIncrementState(int stateIncremented)
+      : super(stateIncremented + 1);
 }
 
 class CounterDecrementState extends CounterState {
-  const CounterDecrementState(this.stateDecremented);
-
-  final int stateDecremented;
-
-  @override
-  List<Object> get props => [stateDecremented - 1];
+  const CounterDecrementState(int stateDecremented)
+      : super(stateDecremented - 1);
 }
