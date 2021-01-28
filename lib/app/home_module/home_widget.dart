@@ -8,6 +8,9 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // created once when build is called (not using setState)
+    int _currentValue = 0;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Counter Bloc"),
@@ -19,13 +22,12 @@ class MyHomePage extends StatelessWidget {
             Text(
               'You have pushed the button this many times: ',
             ),
-            BlocBuilder<CounterBloc, CounterState>(
+            BlocConsumer<CounterBloc, CounterState>(
               cubit: _counterBloc,
+              listener: (context, state) => _currentValue = state.value,
               builder: (context, state) {
-                int stateValue = state.props[0];
-
                 return Text(
-                  '$stateValue',
+                  '$_currentValue',
                   style: Theme.of(context).textTheme.headline5,
                 );
               },
@@ -41,14 +43,18 @@ class MyHomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
               child: const Icon(Icons.add),
-              onPressed: () => _counterBloc.add(CounterIncrementEvent()),
+              onPressed: () => _counterBloc.add(
+                CounterIncrementEvent(_currentValue),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
               child: const Icon(Icons.remove),
-              onPressed: () => _counterBloc.add(CounterDecrementEvent()),
+              onPressed: () => _counterBloc.add(
+                CounterDecrementEvent(_currentValue),
+              ),
             ),
           ),
         ],
