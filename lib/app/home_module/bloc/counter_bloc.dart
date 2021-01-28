@@ -7,7 +7,7 @@ part 'counter_state.dart';
 part 'counter_event.dart';
 
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(CounterInitialState());
+  CounterBloc() : super(CounterStateInitial());
 
   // Events come in to de bloc (skink)
   // States come out of the bloc (stream)
@@ -15,13 +15,13 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
   @override
   Stream<CounterState> mapEventToState(CounterEvent event) async* {
     if (event is CounterIncrementEvent) {
-      int stateValue = state.props[0];
+      final int stateValue = event.incrementValue + 1;
 
-      yield CounterIncrementState(stateValue);
+      yield CounterStateUpdated(updatedCount: stateValue);
     } else if (event is CounterDecrementEvent) {
-      int stateValue = state.props[0];
+      final int stateValue = event.decrementValue - 1;
 
-      yield CounterDecrementState(stateValue);
+      yield CounterStateUpdated(updatedCount: stateValue);
     }
   }
 }
