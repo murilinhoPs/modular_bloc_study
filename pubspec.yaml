@@ -12,8 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  bloc:  
   flutter_bloc:
-  bloc:
   flutter_modular:
   equatable:
   

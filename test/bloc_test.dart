@@ -13,18 +13,18 @@ void main() {
     blocTest(
       'Increment test',
       build: () => counterBloc,
-      act: (CounterBloc bloc) => bloc.add(CounterIncrementEvent()),
+      act: (CounterBloc bloc) => bloc.add(CounterIncrementEvent(0)),
       expect: [
-        CounterIncrementState(0),
+        CounterStateUpdated(updatedCount: 1),
       ],
     );
 
     blocTest(
-      'Increment test',
+      'Decrement test',
       build: () => counterBloc,
-      act: (CounterBloc bloc) => bloc.add(CounterDecrementEvent()),
+      act: (CounterBloc bloc) => bloc.add(CounterDecrementEvent(0)),
       expect: [
-        CounterDecrementState(0),
+        CounterStateUpdated(updatedCount: -1),
       ],
     );
   });
